@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="logo.ico" />
+    <title>MTS</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.google.com/specimen/Sedgwick+Ave"
+    />
+    <link rel="stylesheet" href="./styleprogram.css" />
+    <style>
+      body{
+        background-color: #fff299;
+        height: 100%;
+        margin: 0;
+        font-family: Arial;
+      }
+      .tablink {
+        background-color: gold;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        font-size: 17px;
+        width: 33.33%;
+      }
+
+      .tablink:hover {
+        background-color: gold;
+      }
+
+      .tabcontent {
+        display: none;
+        padding: 100px 0px 100px 0px;
+      }
+
+      #MIERCURI {
+        background-color: #fff299;
+      }
+      #JOI {
+        background-color: #fff299;
+      }
+      #VINERI {
+        background-color: #fff299;
+      }
+    </style>
+  </head>
+  <header class="header">
+      <a href="./index.html"><img src="./logo fundatie png.png" alt="donbosco" class="logo" ></a>
+    </header>
+  <body>
+    
+    <button class="tablink" onclick="openPage('MIERCURI', this, '#fff299')" id="defaultOpen">
+      MIERCURI
+    </button>
+    <button
+      class="tablink"
+      onclick="openPage('JOI', this, '#fff299')"
+      
+    >
+      JOI
+    </button>
+    <button class="tablink" onclick="openPage('VINERI', this, '#fff299')">
+      VINERI
+    </button>
+  <div class="tabcontent" id="HOME">Alege ziua si programu</div>
+    <div id="MIERCURI" class="tabcontent">
+      <div class="scheduleContainerMi">
+        <!-- TIMES -->
+
+        <div class="time start-1600">16:00</div>
+        <div class="time start-1630">16:30</div>
+        <div class="time start-1700">17:00</div>
+        <div class="time start-1730">17:30</div>
+        <div class="time start-1800">18:00</div>
+        <div class="time start-1830">18:30</div>
+        <div class="time start-1900">19:00</div>
+        <div class="time start-1930">19:30</div>
+        <div class="time start-2000">20:00</div>
+        <div class="time start-2030">20:30</div>
+        <div class="time start-2100">21:00</div>
+        <div class="time start-2130">21:30</div>
+        <div class="time start-2200">22:00</div>
+        <div class="time start-2230">22:30</div>
+        <div class="time start-2300">23:00</div>
+
+        <!-- EVENTS -->
+
+        <div class="event stage-aa start-1600 end-1700 length-3">
+          Primirea <span>Cazarea + Joc</span>
+        </div>
+        <div class="event stage-ba start-1730 end-1900 length-3">
+          Moment de bun venit<span>Prezentarea temei + socializare :D</span>
+        </div>
+
+        <div class="event stage-ca start-1930 end-2030 length-3">
+          Cina <span> </span>
+        </div>
+
+        <div class="event stage-da start-2100 end-2230 length-3">
+          Marele Joc al serii<span></span>
+        </div>
+
+        <div class="event stage-ea start-2230 end-2300 length-3">
+          Gand de noapte buna<span>dat de cineva special ;)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabcontent" id="JOI">
+      <div class="scheduleContainer">
+        <!-- TIMES -->
+        <div class="time start-800">8:00</div>
+        <div class="time start-830">8:30</div>
+        <div class="time start-900">9:00</div>
+        <div class="time start-930">9:30</div>
+        <div class="time start-1000">10:00</div>
+        <div class="time start-1030">10:30</div>
+        <div class="time start-1100">11:00</div>
+        <div class="time start-1130">11:30</div>
+        <div class="time start-1200">12:00</div>
+        <div class="time start-1230">12:30</div>
+        <div class="time start-1300">13:00</div>
+        <div class="time start-1330">13:30</div>
+        <div class="time start-1400">14:00</div>
+        <div class="time start-1430">14:30</div>
+        <div class="time start-1500">15:00</div>
+        <div class="time start-1530">15:30</div>
+        <div class="time start-1600">16:00</div>
+        <div class="time start-1630">16:30</div>
+        <div class="time start-1700">17:00</div>
+        <div class="time start-1730">17:30</div>
+        <div class="time start-1800">18:00</div>
+        <div class="time start-1830">18:30</div>
+        <div class="time start-1900">19:00</div>
+        <div class="time start-1930">19:30</div>
+        <div class="time start-2000">20:00</div>
+        <div class="time start-2030">20:30</div>
+        <div class="time start-2100">21:00</div>
+        <div class="time start-2130">21:30</div>
+        <div class="time start-2200">22:00</div>
+        <div class="time start-2230">22:30</div>
+
+        <!-- EVENTS -->
+        <div class="event stage-ab start-800 end-800 length-3">
+          Moment de rugăciune<span></span>
+        </div>
+        <div class="event stage-bb start-830 end-900 length-3">
+          Mic dejun <span></span>
+        </div>
+        <div class="event stage-cb start-930 end-1200 length-3">
+          Moment de formare<span></span>
+        </div>
+        <div class="event stage-db start-1230 end-1230 length-3">
+          Pranz<span></span>
+        </div>
+        <div class="event stage-eb start-1300 end-1400 length-3">
+          Pauza animată<span></span>
+        </div>
+        <div class="event stage-fb start-1430 end-1730 length-2">
+          Ateliere creative<span
+            >1. Imn <br />
+            2. Teatru <br />
+            3. Gadget/Art&Craft <br />
+            4. Bans <br />
+            5. Joc <br />
+            6. Teatru comic</span
+          >
+        </div>
+        <div class="event stage-gb start-1430 end-1730 length-1">
+          Moment cu studenții<span>legea</span>
+        </div>
+
+        <div class="event stage-hb start-1800 end-1830 length-3">
+          Sfânta Liturghia<span></span>
+        </div>
+
+        <div class="event stage-ib start-1900 end-1900 length-3">
+          Pauză<span></span>
+        </div>
+
+        <div class="event stage-jb start-1930 end-1930 length-3">
+          Cina<span></span>
+        </div>
+
+        <div class="event stage-kb start-2000 end-2200 length-3">
+          Serată<span>prezentare ateliere + CDB?</span>
+        </div>
+        <div class="event stage-lb start-2230 end-2230 length-3">
+          Gând de noapte buna<span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tabcontent" id="VINERI">
+      <div class="scheduleContainerVi">
+        <!-- TIMES -->
+        <div class="time start-800">8:00</div>
+        <div class="time start-830">8:30</div>
+        <div class="time start-900">9:00</div>
+        <div class="time start-930">9:30</div>
+        <div class="time start-1000">10:00</div>
+        <div class="time start-1030">10:30</div>
+        <div class="time start-1100">11:00</div>
+        <div class="time start-1130">11:30</div>
+        <div class="time start-1200">12:00</div>
+        <div class="time start-1230">12:30</div>
+        <div class="time start-1300">13:00</div>
+        <!-- EVENTS -->
+        <div class="event stage-ac start-800 end-800 length-3">
+          Moment de rugăciune<span></span>
+        </div>
+        <div class="event stage-bc start-830 end-830 length-3">
+          Mic Dejun <span></span>
+        </div>
+        <div class="event stage-cc start-900 end-1030 length-3">
+          Verificare<span></span>
+        </div>
+        <div class="event stage-dc start-1100 end-1130 length-3">
+          Sfanta Liturghie <span></span>
+        </div>
+        <div class="event stage-ec start-1200 end-1200 length-3">
+          Prânz<span></span>
+        </div>
+        <div class="event stage-fc start-1230 end-1300 length-3">
+          Plecarea<span></span>
+        </div>
+      </div>
+    </div>
+    <script>
+      function openPage(pageName, elmnt, color) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+      }
+
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+    </script>
+    <div class="footer">
+      
+      <p>Powered by <a style="color:black; text-decoration:none" href="https://www.youtube.com/watch?v=sGIgKN2XjZ8"><b>@consultaMTS</b></p></a>
+       <!--nicu pe viata frate.-->
+    </div>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="logo.ico" />
+    <title>Lista</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./stylepray.css" />
+    <style>
+
+    </style>
+    <script src="https://kit.fontawesome.com/613d17e8aa.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.2.2/firebase-app.js"> </script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script> 
+
+    
+    <script>
+        const firebaseConfig = {
+    apiKey: "AIzaSyCUbBJlSVxul-V4t42D95TLdq5jGSW95yg",
+    authDomain: "mts22-8adac.firebaseapp.com",
+    databaseURL: "https://mts22-8adac-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "mts22-8adac",
+    storageBucket: "mts22-8adac.appspot.com",
+    messagingSenderId: "625634894660",
+    appId: "1:625634894660:web:87641e46fcbea303f6ad11",
+    measurementId: "G-QZT4VY9YHP"
+  };
+   // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+    </script>
+        <script>
+          
+             function InsertData(){
+              firebase.database().ref('lista').once('value',
+              function(snapshot){
+                snapshot.forEach(
+                    function(CurrentRecord){
+                var name=CurrentRecord.val().name;
+                var search=CurrentRecord.val().search;
+                var selfnumber=CurrentRecord.val().selfnumber;
+                AddItemsToTable(name,search,selfnumber);
+                  }
+                  );
+          
+              });
+            }
+             function AddItemsToTable(name,search,selfnumber){
+                var tbody=document.getElementById('tbody');
+                var trow=document.createElement('tr');
+                var td1=document.createElement('td');
+                var td2=document.createElement('td');
+                var td3=document.createElement('td');
+                td1.innerHTML=name;
+                td2.innerHTML=search;
+                var dateMTSstart = new Date('April 27, 2022 18:00:00');
+                var dateMTS = new Date('April 29, 2022 08:55:00');
+                  var date=new Date();
+                  if(date>=dateMTS)
+                  {
+                    td3.innerHTML=selfnumber;
+                  }
+                  else{
+                  td3.innerHTML="?";
+                    if(selfnumber==122)
+                     td3.innerHTML=selfnumber;
+                  }
+                  if(date>=dateMTSstart){
+                    td2.innerHTML=search;
+                  }
+                  else {td2.innerHTML="?";
+                  if(selfnumber==122)
+                     td2.innerHTML=search;
+                }
+                  
+                trow.appendChild(td1);
+                trow.appendChild(td2);
+                trow.appendChild(td3);
+                tbody.appendChild(trow);
+            }
+            window.onload=InsertData();
+              </script>
+
+          
+  </head>
+
+  <body>
+    <header class="header">
+      <a href="./index.html"><img src="./logo fundatie png.png" alt="donbosco" class="logo"></a>
+    </header>
+
+        <div class="listpeople">
+          <br>
+          <h2 class="title">Lista :)</h2>
+                <table class="table table-warning text-gold" style="margin-left:1px;margin-right:1px;">
+        <thead class="thead-dark">
+            <th>Nume</th>
+            <th>Numar</th>
+            <th>Numarul profilului propriu</th>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+
+        </table>
+        </div>
+     <div class="footer">
+      
+      <p onclick="openPage('HOME', this, '#fff299')" id="defaultOpen">Powered by <a style="color:black; text-decoration:none" ><b>@consultaMTS</b></p></a>
+       <!--nicu pe viata frate.-->
+    </div>
+  </body>
+</html>

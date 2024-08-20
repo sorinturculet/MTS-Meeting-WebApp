@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="logo.ico" />
+    <title>MTS</title>
+
+    <script src="https://kit.fontawesome.com/613d17e8aa.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/8.2.2/firebase-app.js"> </script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-database.js"></script> 
+    
+    <script type="module" src="./index.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <script>
+      
+  var numberCV;
+  function Ready(){
+    numberCV=document.getElementById('idParticipant').value;
+    console.log(numberCV);
+  }
+  function show(shown, hidden) {
+    
+    numberCV=document.getElementById('idParticipant').value;
+    if(!numberCV)
+      alert("Nu ai introdus nici un număr!");  
+    else if(numberCV >=0 && numberCV<122)
+      {Ready();
+        console.log(numberCV);
+        InsertData();
+      document.getElementById(shown).style.display='block';
+      document.getElementById(hidden).style.display='none';
+      return false;
+      }
+
+      else if(numberCV==122)
+      {Ready();
+        console.log(numberCV);
+        InsertDataDB();
+      document.getElementById(shown).style.display='block';
+      document.getElementById(hidden).style.display='none';
+      return false;
+      }
+            else if(numberCV >=123 && numberCV<125)
+      {Ready();
+        console.log(numberCV);
+        InsertData();
+      document.getElementById(shown).style.display='block';
+      document.getElementById(hidden).style.display='none';
+      return false;
+      }
+      
+    else alert("Hoțomane nu ai introdus un număr valid");
+  }
+
+  function InsertData() {
+  firebase.database().ref('participant/' + numberCV).once('value', function(snapshot) {
+    var pic1 = snapshot.val().photo;
+    // Check if the photo field is not empty
+    if (pic1) {
+      document.getElementById('photocv').src = pic1;
+    } else {
+      // Use a default image if the photo field is empty
+      document.getElementById('photocv').src = 'default_image.jpg';
+    }
+    console.log(pic1);
+    var dateMTS1 = new Date('April 27, 2022 19:20:00');
+    var dateMTS2 = new Date('April 27, 2022 20:45:00');
+    var dateMTS3 = new Date('April 27, 2022 23:00:00');
+    var dateMTS4 = new Date('April 28, 2022 08:30:00');
+    var dateMTS5 = new Date('April 28, 2022 13:00:00');
+    var dateMTS6 = new Date('April 28, 2022 14:30:00');
+    var dateMTS7 = new Date('April 28, 2022 19:00:00');
+    var dateMTSf = new Date('April 29, 2022 08:55:00');
+    var date = new Date();
+
+    if (date >= dateMTSf) {
+      document.getElementById('namecv').innerHTML = snapshot.val().name;
+    }
+    if (date >= dateMTS1) {
+      document.getElementById('statuscv').innerHTML = snapshot.val().status;
+    }
+    if (date >= dateMTS2) {
+      document.getElementById('preferencecv').innerHTML = snapshot.val().preference;
+    }
+    if (date >= dateMTS3) {
+      document.getElementById('todocv').innerHTML = snapshot.val().todo;
+    }
+    if (date >= dateMTS4) {
+      document.getElementById('friendscv').innerHTML = snapshot.val().friends;
+      document.getElementById('sockscv').innerHTML = snapshot.val().socks;
+    }
+    if (date >= dateMTS5) {
+      document.getElementById('hobbycv').innerHTML = snapshot.val().hobby;
+      document.getElementById('linescv').innerHTML = snapshot.val().lines;
+    }
+    if (date >= dateMTS6) {
+      document.getElementById('villancv').innerHTML = snapshot.val().villan;
+      document.getElementById('fearcv').innerHTML = snapshot.val().fear;
+    }
+    if (date >= dateMTS7) {
+      document.getElementById('oratorycv').innerHTML = snapshot.val().oratory;
+    }
+  });
+}
+
+function InsertDataDB() {
+  firebase.database().ref('participant/' + numberCV).once('value', function(snapshot) {
+    var pic1 = snapshot.val().photo;
+    // Check if the photo field is not empty
+    if (pic1) {
+      document.getElementById('photocv').src = pic1;
+    } else {
+      // Use a default image if the photo field is empty
+      document.getElementById('photocv').src = 'default_image.jpg';
+    }
+
+    document.getElementById('namecv').innerHTML = snapshot.val().name;
+    document.getElementById('statuscv').innerHTML = snapshot.val().status;
+    document.getElementById('preferencecv').innerHTML = snapshot.val().preference;
+    document.getElementById('todocv').innerHTML = snapshot.val().todo;
+    document.getElementById('friendscv').innerHTML = snapshot.val().friends;
+    document.getElementById('sockscv').innerHTML = snapshot.val().socks;
+    document.getElementById('hobbycv').innerHTML = snapshot.val().hobby;
+    document.getElementById('linescv').innerHTML = snapshot.val().lines;
+    document.getElementById('villancv').innerHTML = snapshot.val().villan;
+    document.getElementById('fearcv').innerHTML = snapshot.val().fear;
+    document.getElementById('oratorycv').innerHTML = snapshot.val().oratory;
+  });
+}
+    </script>
+
+  </head>
+<body>
+  <div id="Page1">
+        <section class="p-menu1">
+          <nav id="navbar" class="navigation" role="navigation">
+            <input id="toggle1" type="checkbox" />
+            <label class="hamburger1" for="toggle1">
+              <div class="top"></div>
+              <div class="meat"></div>
+              <div class="bottom"></div>
+            </label>
+          
+            <nav class="menu1">
+              <a class="link1" href="./programv2.html">Program</a>
+              <a class="link1" href="./rugaciune.html">Rugaciune de dimineata</a>
+              <a class="link1" href="./map.html">Harta Oratoriului</a>
+              <a class="link1" href="./joc.html">Joc</a>
+              <a class="link1" href="https://forms.gle/iFT4PUDPdtqcMgf29" target="_blank">Sugestii in timp real pt organizatori</a>
+              <a class="link1" href="./contact.html">Contact</a>
+            </nav>
+        </nav>
+        </section>
+        <!--hatz cu dropdown-->
+        <div class="space"><br><br><br></div>
+        <div class="title1"><img src="Logo MTS.png" width="250" width="250"></div>
+          <div class="top">
+              <div>
+                <h2>Inca nu ti-ai gasit persoana?:p</h2>
+              </div>
+            <br>
+            
+            
+          </div>
+            <div class="wrapper">
+              <div class="searchBox">
+                <input type="text" class="inputSearch" placeholder="?" id="idParticipant">
+                <div class="searchBtn" >
+        
+                  <button class="fas fa-search"  id="myButton" onclick="return show('Page2','Page1');"  ></button>
+
+                </div>
+              </div>
+
+            </div>
+            <div class="top">
+              <div>
+                <a href="lista.html" ><h4>Uite aici lista cu persoanele!</h4></a>
+                
+              </div>
+            </div>
+            <br>
+            <br>
+              <div class="top2">
+                <div>
+                  <a href="https://forms.gle/Z4dVT8Pugk2v17fJ6"><h4>Crezi că ți-ai gasit persoana?</h4></a>
+                  
+                </div>
+              
+              
+              </div>
+              <div class="top2">
+                <div>
+                  <a href="https://forms.gle/Z4dVT8Pugk2v17fJ6"><h4>Dă click aici pentru a-ți incerca norocul.</h4></a>
+                  
+                </div>
+              
+              
+              </div>
+            <style>
+            
+            </style>
+            <div class="footer">
+              
+              <p>Powered by <a href="https://www.youtube.com/watch?v=V4S8Bo9UNGQ" target="_blank" style="color:black; text-decoration:none" ><b>@consultaMTS</b></p></a>
+              <!--nicu pe viata frate.-->
+            </div>
+  </div>
+
+  <!-- profil-->
+  <div id="Page2" style="display:none">
+            <header class="header">
+              <a href="./index.html"><img src="./logo fundatie png.png" alt="donbosco" class="logo"></a>
+            </header>
+        <br>
+
+                <!-- profile page-->
+                <div class="profileContainer" >
+                    <img src="./profileIcon.jpg" class="prfImg" id="photocv">
+                    <div class="profile-details">
+                        <h1 class="namecv" id="namecv">ADS-ist</h1>
+                    </div>
+                </div>
+        <br>
+                <div class="profileContainer2" >
+                  <div class="profile-details">
+                    <div class="question">
+                          <h2>ORATORIU DE APARTENENȚĂ</h2>
+                          <br>
+                        <h4 id="oratorycv">?</h4>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="profileContainer2" >
+                <div class="profile-details">
+                  <div class="question">
+                        <h2>STATUS ȘCOLAR</h2>
+                        <br>
+                      <h4 id="statuscv">?</h4>
+                  </div>
+                </div>
+            </div>
+
+              <div class="profileContainer2" >
+                <div class="profile-details">
+                  <div class="question">
+                        <h2>HOBBY</h2>
+                        <br>
+                      <h4 id="hobbycv">?</h4>
+                  </div>
+                </div>
+            </div>
+
+            <div class="profileContainer2" >
+              <div class="profile-details">
+                <div class="question">
+                      <h2>CE VREAU SA FAC LA MTS</h2>
+                      <br>
+                    <h4 id="todocv">?</h4>
+                </div>
+              </div>
+          </div>
+
+          <div class="profileContainer2" >
+            <div class="profile-details">
+              <div class="question">
+                    <h2>NUMĂR DE LINII DE PE CRAVATĂ</h2>
+                    <br>
+                  <h4 id="linescv">?</h4>
+              </div>
+            </div>
+        </div>
+
+          <div class="profileContainer2" >
+            <div class="profile-details">
+              <div class="question">
+                    <h2>CU CE AȘ ÎNFRÂNGE UN RĂUFĂCĂTOR?</h2>
+                    <br>
+                  <h4 id="villancv">?</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="profileContainer2" >
+            <div class="profile-details">
+              <div class="question">
+                    <h2>AȘ PREFERA SA FIU</h2>
+                    <br>
+                  <h4 id="preferencecv">?</h4>
+              </div>
+            </div>
+          </div>
+          
+          <div class="profileContainer2" >
+            <div class="profile-details">
+              <div class="question">
+                    <h2> CA SĂ FIU PRIETEN CU CINEVA, ACESTA AR TREBUI SĂ</h2>
+                    <br>
+                  <h4 id="friendscv">?</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="profileContainer2" >
+            <div class="profile-details">
+              <div class="question">
+                    <h2>CEA MAI MARE FOBIE A MEA ESTE</h2>
+                    <br>
+                  <h4 id="fearcv">?</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="profileContainer2" >
+            <div class="profile-details">
+              <div class="question">
+                    <h2>DESCRIERE A CELEI MAI MIȘTO PERECHI DE ȘOȘETE PE CARE O AM</h2>
+                    <br>
+                  <h4 id="sockscv">?</h4>
+              </div>
+            </div>
+          </div>
+
+        <br><br><br><br>
+            <div class="footer">
+              
+              <p>Powered by <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" style="color:black; text-decoration:none" ><b>@consultaMTS</b></p></a
+              >
+            </div>
+
+  </div>
+  </body>
+</html>
